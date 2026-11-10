@@ -37,7 +37,7 @@
     "bcrypt": "^6.0.0",
     "bullmq": "^5.67.3",
     "dotenv": "^17.2.4",
-    "fastify": "^5.7.4",
+    "fastify": "^5.12.6",
     "fastify-metrics": "^12.1.0",
     "fastify-plugin": "^5.1.0",
     "fastify-type-provider-zod": "^6.1.0",
