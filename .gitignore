@@ -5,16 +5,16 @@ node_modules/
 .env
 .env.*
 
-# --- Desktop Plataform ---
+# --- Desktop Platform ---
 dist/
 out/
 .eslintcache
 
-# --- Web Plataform ---
-/plataforms/web/dist/
-/plataforms/web/dist-ssr/
-/plataforms/web/*.local
-/plataforms/web/.vite/
+# --- Web Platform ---
+/platforms/web/dist/
+/platforms/web/dist-ssr/
+/platforms/web/*.local
+/platforms/web/.vite/
 
 
 # --- Logs ---
@@ -28,9 +28,11 @@ lerna-debug.log*
 # --- Sistema Operacional e IDEs ---
 .DS_Store
 .idea/
-.vscode/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+# Agent Plans Container (Ignored by Git, preserved for local @ attachment via .ignore / .rgignore)
+.agents/plans/
+plans/

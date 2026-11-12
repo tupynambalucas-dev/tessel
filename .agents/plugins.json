@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "path": "../../../org-core/agent-mesh/plugins/packages"
+    },
+    {
+      "path": "../omnichannel/node_modules/@tupynambalucas-dev/agent-mesh/plugins/packages"
+    },
+    {
+      "path": "node_modules/@tupynambalucas-dev/agent-mesh/plugins/packages"
+    }
+  ]
+}
