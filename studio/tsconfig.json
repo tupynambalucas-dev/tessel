@@ -1,26 +1,11 @@
 {
+  "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "declaration": true,
-    "declarationDir": "./dist",
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./",
-    "composite": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "jsx": "react-jsx",
+    "paths": {
+      "@studio/*": ["./src/*"]
+    }
   },
-  "include": [
-    "src",
-    "scripts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

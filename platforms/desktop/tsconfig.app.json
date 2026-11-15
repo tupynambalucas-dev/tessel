@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "paths": {
+      "@renderer/*": ["./src/renderer/*"],
+      "@common/*": ["./src/common/*"],
+      "@tessel/hub": ["../../packages/hub/src/index.ts"]
+    },
+    "types": ["node"]
+  },
+  "include": [
+    "src/renderer/**/*",
+    "src/common/**/*",
+    "src/env.d.ts",
+    "src/renderer/types/**/*.d.ts"
+  ],
+  "exclude": ["node_modules", "out", "dist"]
+}

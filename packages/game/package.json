@@ -3,32 +3,35 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "dependencies": {
-    "@tessel/studio": "*",
-    "@tessel/core": "*",
-    "@xstate/react": "6.0.0",
-    "@gsap/react": "2.1.2",
-    "@react-three/drei": "10.7.7",
-    "@react-three/fiber": "9.5.0",
-    "@react-three/postprocessing": "3.0.4",
-    "@react-three/rapier": "2.2.0",
-    "three": "0.182.0",
-    "gsap": "3.14.2",
-    "i18next": "25.8.4",
-    "react-i18next": "16.5.4",
-    "tone": "15.1.22",
-    "zustand": "5.0.11",
-    "axios": "1.21.1",
-    "date-fns": "4.1.0",
-    "react-datepicker": "9.1.0"
+  "scripts": {
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
   },
-  "peerDependencies": {
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
+  "dependencies": {
+    "@tessel/studio": "workspace:*",
+    "@tessel/core": "workspace:*",
+    "@xstate/react": "catalog:shared-stack",
+    "@gsap/react": "catalog:web-stack",
+    "@react-three/drei": "catalog:shared-stack",
+    "@react-three/fiber": "catalog:shared-stack",
+    "@react-three/postprocessing": "catalog:shared-stack",
+    "@react-three/rapier": "catalog:shared-stack",
+    "three": "catalog:shared-stack",
+    "gsap": "catalog:web-stack",
+    "i18next": "catalog:web-stack",
+    "react-i18next": "catalog:web-stack",
+    "tone": "catalog:shared-stack",
+    "zustand": "catalog:web-stack",
+    "axios": "catalog:shared-stack",
+    "date-fns": "catalog:shared-stack",
+    "react-datepicker": "catalog:web-stack",
+    "react": "catalog:web-stack",
+    "react-dom": "catalog:web-stack"
   },
   "devDependencies": {
-    "react": "19.2.4",
-    "react-dom": "19.2.4",
-    "tailwindcss": "4.1.18"
+    "tailwindcss": "catalog:shared-stack",
+    "typescript": "catalog:"
   }
 }

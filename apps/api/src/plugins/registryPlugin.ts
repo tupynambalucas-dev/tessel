@@ -19,6 +19,14 @@ import { AuthRepository } from '../domains/auth/auth.repository.js';
 import { AuthService } from '../domains/auth/auth.service.js';
 import { AuthController } from '../domains/auth/auth.controller.js';
 
+import { ProductRepository } from '../domains/product/product.repository.js';
+import { ProductService } from '../domains/product/product.service.js';
+import { ProductController } from '../domains/product/product.controller.js';
+
+import { CycleRepository } from '../domains/cycle/cycle.repository.js';
+import { CycleService } from '../domains/cycle/cycle.service.js';
+import { CycleController } from '../domains/cycle/cycle.controller.js';
+
 const serverAutoRegistry: FastifyPluginAsync = async function (server: FastifyInstance) {
   server.setValidatorCompiler(validatorCompiler);
   server.setSerializerCompiler(serializerCompiler);
@@ -44,15 +52,26 @@ const serverAutoRegistry: FastifyPluginAsync = async function (server: FastifyIn
   await server.register(secureSession);
   await server.register(SecurityPlugin);
 
-  const { User } = server.models;
+  const { User, Product, Cycle } = server.models;
 
   const authRepo = new AuthRepository(User);
   const authService = new AuthService(authRepo, server);
   const authController = new AuthController(authService);
 
+  const productRepo = new ProductRepository(Product);
+  const productService = new ProductService(productRepo);
+  const productController = new ProductController(productService);
+
+  const cycleRepo = new CycleRepository(Cycle);
+  const cycleService = new CycleService(cycleRepo, productService, server.mongoose);
+  const cycleController = new CycleController(cycleService);
+
   server.decorate('authController', authController);
+  server.decorate('productController', productController);
+  server.decorate('cycleController', cycleController);
 
   await server.register(ApiPlugin, { prefix: '/api' });
+  await server.register(queuePlugin, { cycleService });
 
   const allowedOrigins = ['http://localhost:5173', 'http://localhost:80'];
 

@@ -1,22 +1,23 @@
 import type { FastifyPluginAsync } from 'fastify';
 import fp from 'fastify-plugin';
 
-const utilsPlugin: FastifyPluginAsync = async (server) => {
+const utilsPlugin: FastifyPluginAsync = (server) => {
   server.decorate(
     'convertTimeToSeconds',
-    async (type: 'minutes' | 'hours' | 'days', time: number) => {
+    (type: 'minutes' | 'hours' | 'days', time: number): Promise<number | undefined> => {
       switch (type) {
         case 'minutes':
-          return time * 60;
+          return Promise.resolve(time * 60);
         case 'hours':
-          return time * 3600;
+          return Promise.resolve(time * 3600);
         case 'days':
-          return time * 24 * 60 * 60;
+          return Promise.resolve(time * 24 * 60 * 60);
         default:
-          return undefined;
+          return Promise.resolve(undefined);
       }
     }
   );
+  return Promise.resolve();
 };
 
 export default fp(utilsPlugin);

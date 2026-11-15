@@ -1,0 +1,72 @@
+---
+title: Engineering Modular Characters
+description: Technical implementation details for the modular character system.
+---
+
+# Engineering Modular Characters
+
+## 1. Overview
+The Tessel character system is designed for high modularity with minimal draw calls and efficient state synchronization. It uses a **Component-Based Rendering** approach where the character is a composite of multiple GLTF parts.
+
+## 2. Data Structure (SSOT)
+The state of a character is defined in `@tessel/core` within the `CharacterSchema`. This ensures that both the Social Hub (React/Vite) and the 3D Instances (Three.js) use the same source of truth.
+
+```typescript
+// Conceptual schema in @tessel/core
+export const CharacterSchema = z.object({
+  userId: z.string(),
+  anatomy: z.object({
+    headId: z.string(),
+    bodyId: z.string(),
+    skinColor: z.string(),
+    eyeId: z.string(),
+    mouthId: z.string(),
+  }),
+  hair: z.object({
+    styleId: z.string(),
+    color: z.string(),
+  }),
+  equipment: z.object({
+    topId: z.string().optional(),
+    bottomId: z.string().optional(),
+    shoesId: z.string().optional(),
+  }),
+  accessories: z.array(z.object({
+    slot: z.enum(['head', 'face', 'neck', 'belt', 'ring_l', 'ring_r', 'ear_l', 'ear_r']),
+    itemId: z.string(),
+  })),
+});
+```
+
+## 3. Rendering Architecture
+The 3D character is managed by a `CharacterManager` class within the `game` package.
+
+### 3.1 Skeleton & Slots
+Each character uses a common **Master Skeleton**. Specific bones are designated as **Socket Points** (Slots) for modular parts:
+- `Slot_Head`: Parent for hair, glasses, and hats.
+- `Slot_Neck`: Parent for necklaces and scarves.
+- `Slot_Hand_L / Slot_Hand_R`: Parent for rings and held items.
+- `Slot_Back`: Parent for capes and backpacks.
+
+### 3.2 Modular GLTF Parts
+Parts are authored as individual GLTF files:
+- **Deformable Parts** (Clothes): Use the same skeleton as the master and are merged via `SkinnedMesh` weights.
+- **Rigid Parts** (Accessories): Simple `Object3D` parents attached to the respective bone sockets.
+
+### 3.3 Dynamic Textures
+Eyes and Mouths are implemented as **Texture Atlases** or **Dynamic Decals** on the head mesh. This allows for real-time expression changes (blinking, talking) without swapping geometry.
+
+## 4. Performance Optimization
+- **Caching**: Modular parts are cached globally by `AssetLoader` to avoid redundant network requests.
+- **Instancing**: For large social spaces, characters can be simplified to a single mesh proxy at a distance.
+- **TSL Shaders**: Shared materials using **Three Shading Language (TSL)** for consistent lighting and effects across all modular parts.
+
+## 5. Synchronization Workflow
+1. **Change Event**: User updates an item in the Social Hub UI.
+2. **API Update**: `apps/api` updates the database and emits a `CHARACTER_UPDATE` event via Socket.io.
+3. **Instance Receive**: Active 3D instances receive the event and the `CharacterManager` triggers a `hotSwapPart()` for the specific slot.
+4. **Visual Update**: The new GLTF is loaded, attached to the socket, and old assets are disposed of.
+
+---
+
+_Last Updated: May 2026_

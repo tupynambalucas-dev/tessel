@@ -5,8 +5,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "@tessel/core": ["../core/src"],
-      "@tessel/studio": ["../../studio/src"]
+      "@tessel/core": ["../core/src/index.ts"],
+      "@tessel/studio": ["../../studio/src/index.ts"]
     }
   },
   "include": ["./src/**/*", "src/types/**/*.d.ts"],

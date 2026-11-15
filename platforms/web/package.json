@@ -1,0 +1,35 @@
+{
+  "name": "@tessel/platform-web",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "author": "Tupynambá Lucas Varela Rodrigues <tupynambalucas.dev>",
+  "license": "CC-BY-NC-4.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tessel/hub": "workspace:*",
+    "@tessel/studio": "workspace:*",
+    "react": "catalog:web-stack",
+    "react-dom": "catalog:web-stack"
+  },
+  "devDependencies": {
+    "prettier": "catalog:tooling-stack",
+    "eslint": "catalog:tooling-stack",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "@vitejs/plugin-react-swc": "catalog:web-stack",
+    "@types/react": "catalog:web-stack",
+    "@types/react-dom": "catalog:web-stack",
+    "@tailwindcss/vite": "catalog:web-stack",
+    "tailwindcss": "catalog:shared-stack",
+    "vite": "catalog:web-stack",
+    "vite-plugin-svgr": "catalog:web-stack",
+    "vite-tsconfig-paths": "catalog:desktop-stack"
+  }
+}

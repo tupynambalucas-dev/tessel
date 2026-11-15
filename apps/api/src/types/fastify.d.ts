@@ -5,16 +5,20 @@ import {
   FastifySchema,
   RouteHandlerMethod,
   ContextConfigDefault,
-  RawServerDefault,
+  RawServerDefault
 } from 'fastify';
 import { ZodTypeProvider } from 'fastify-type-provider-zod';
 import '@fastify/session';
 import '@fastify/jwt';
 import { type IUser } from '@tessel/core';
 
-import { AuthController } from '../domains/auth/auth.controller.ts';
+import { AuthController } from '../domains/auth/auth.controller.js';
+import { CycleController } from '../domains/cycle/cycle.controller.js';
+import { ProductController } from '../domains/product/product.controller.js';
 
-import { IUserDocument } from '../models/user.model.ts';
+import { IUserDocument } from '../models/user.model.js';
+import { IProductDocument } from '../models/product.model.js';
+import { ICycleDocument } from '../models/cycle.model.js';
 
 export type UserPayload = Pick<IUser, 'email' | 'username' | 'role' | 'icon'> & {
   _id: string;
@@ -46,9 +50,13 @@ declare module 'fastify' {
 
   interface FastifyInstance {
     authController: AuthController;
+    cycleController: CycleController;
+    productController: ProductController;
 
     models: {
       User: Model<IUserDocument>;
+      Product: Model<IProductDocument>;
+      Cycle: Model<ICycleDocument>;
     };
 
     mongoose: Mongoose;
@@ -58,7 +66,7 @@ declare module 'fastify' {
 
     convertTimeToSeconds(
       type: 'minutes' | 'hours' | 'days',
-      time: number,
+      time: number
     ): Promise<number | undefined>;
 
     genHash(password: string): Promise<string | Error>;

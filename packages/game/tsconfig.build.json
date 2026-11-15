@@ -13,7 +13,8 @@
     "emitDeclarationOnly": true,
 
     /* Limpeza de código */
-    "removeComments": true
+    "removeComments": true,
+    "paths": {}
   },
   "exclude": ["node_modules", "dist", "**/*.test.*", "**/*.spec.*", "**/*.css", "**/*.module.css"],
   "references": [{ "path": "../core" }]

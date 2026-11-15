@@ -1,6 +1,6 @@
-# 📜 Tessel - Execution Prompts Hub
+# 📜 elo-organico - Execution Prompts Hub
 
-This file serves as a repository for complex, multi-step execution prompts. These prompts define high-level architectural shifts, batch refactorings, or strategic implementations.
+This file serves as a repository for complex, multi-step execution prompts.
 
 ---
 
@@ -19,4 +19,5 @@ This file serves as a repository for complex, multi-step execution prompts. Thes
 ---
 
 ## 📚 Archive / Templates
+
 _Useful prompt structures or previous logic for reference._

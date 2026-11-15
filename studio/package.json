@@ -3,22 +3,45 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Elo Organico Workspace - Strategy, Design, and Content Management",
-  "scripts": {
-    "clean": "rimraf dist tsconfig.tsbuildinfo src/icons",
-    "typecheck": "tsc --noEmit",
-    "lint": "eslint .",
-    "sync:masterplan": "tsx scripts/sync-masterplan.ts",
-    "changelog:generate": "tsx scripts/generate-changelog.ts",
-    "build:assets": "tsx scripts/build-assets.ts"
+  "author": "Tupynambá Lucas Varela Rodrigues <tupynambalucas.dev>",
+  "description": "Tessel Studio Package",
+  "license": "CC-BY-NC-4.0",
+  "files": [
+    "src"
+  ],
+  "exports": {
+    "./icons": "./src/icons/index.tsx",
+    "./logos": "./src/logos/index.ts",
+    "./images/*": "./src/images/*",
+    "./tokens": "./src/tokens/index.ts",
+    "./tokens.css": "./src/tokens/tokens.css",
+    "./theme.css": "./src/tokens/theme.css"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.23.0",
-    "@svgr/core": "^8.1.0",
-    "@svgr/plugin-jsx": "^8.1.0",
-    "@svgr/plugin-prettier": "^8.1.0",
-    "@svgr/plugin-svgo": "^8.1.0",
-    "dotenv": "^16.4.7",
-    "googleapis": "^146.0.0"
+    "@fontsource-variable/nunito": "catalog:studio-stack",
+    "@fortawesome/fontawesome-svg-core": "catalog:studio-stack",
+    "@fortawesome/free-brands-svg-icons": "catalog:studio-stack",
+    "@fortawesome/free-regular-svg-icons": "catalog:studio-stack",
+    "@fortawesome/free-solid-svg-icons": "catalog:studio-stack",
+    "@fortawesome/react-fontawesome": "catalog:studio-stack",
+    "react": "catalog:web-stack",
+    "react-dom": "catalog:web-stack"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:web-stack",
+    "@types/react-dom": "catalog:web-stack",
+    "typescript": "catalog:",
+    "tailwindcss": "catalog:shared-stack",
+    "eslint": "catalog:tooling-stack"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "penpot:up": "docker compose -f penpot/compose.yaml up -d",
+    "penpot:down": "docker compose -f penpot/compose.yaml down",
+    "penpot:reset": "docker compose -f penpot/compose.yaml down && docker compose -f penpot/compose.yaml up -d --force-recreate",
+    "penpot:update": "docker compose -f penpot/compose.yaml pull && docker compose -f penpot/compose.yaml up -d",
+    "aide:up": "docker compose -f penpot/compose.yaml up -d aide",
+    "aide:down": "docker compose -f penpot/compose.yaml stop aide",
+    "typecheck": "tsc --noEmit"
   }
 }

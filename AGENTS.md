@@ -1,26 +1,37 @@
 # Tessel Spatial Ecosystem Agent Context
 
-This document serves as the root context router (Layer 2) for AI agents operating within
-the `tupynambalucas-dev/tessel` proprietary software repository.
+This document serves as the root context router (Layer 1) for AI agents operating within
+the `tupynambalucas-dev/tessel` proprietary software monorepo.
 
 ## Architectural Boundaries
 
-- **Ecosystem Taxonomy**: Hybrid spatial-social virtual platform, real-time interactive game canvas, and distributed API core.
-- **Monorepo Engine**: Turborepo with strict package manager catalogs.
+- **Ecosystem Taxonomy**: Hybrid spatial-social virtual platform, real-time WebGPU interactive 3D simulation, and distributed API/DGS authority.
+- **Monorepo Engine**: Turborepo with strict pnpm catalogs (`catalogMode: 'strict'`).
 - **Domain Separation**:
-  - `apps/api`: Fastify API backend, Redis caching, MongoDB/Mongoose models, BullMQ task workers.
-  - `apps/web`: Web platform and client portal.
-  - `packages/core`: Shared TypeScript models, contracts, and core utilities.
-  - `packages/game`: 3D spatial simulation, Three.js, React Three Fiber, Rapier physics, and Tone.js audio engine.
-  - `studio`: Penpot asset synchronizer, Blender pipelines, design tokens, and UI icon catalog.
+  - `apps/api`: Fastify 5 API backend authority, Redis caching, MongoDB/Mongoose models, BullMQ task workers.
+  - `apps/game-server`: Dedicated Game Server (DGS) running authoritative Rapier 3D WASM simulation and Geckos.io WebRTC UDP data channels.
+  - `packages/core`: Single Source of Truth (SSOT) shared TypeScript models, Zod v4 contracts, XState machines, and physics presets.
+  - `packages/game`: 3D spatial simulation, Three.js WebGPU / TSL, React Three Fiber v9, Rapier physics, and Tone.js audio engine.
+  - `packages/hub`: Asynchronous social network UI components, timelines, and Zustand state stores.
+  - `platforms/web`: Vite 8 + React 19 browser host shell.
+  - `platforms/desktop`: Electron 41 + electron-vite desktop host shell.
+  - `studio`: Brand design tokens, SVG React icon catalog, Penpot compose stack, and Blender 3D asset pipelines.
+  - `tools`: Workspace automation scripts and local MCP tooling.
+  - `knowledge-base`: Docusaurus v3 technical documentation portal.
 
 ## Workspace Navigation
 
 - [README.md](./README.md): Primary platform documentation and operational runbook.
-- [apps/api/README.md](./apps/api/README.md): API backend architecture and route documentation.
-- [packages/core/README.md](./packages/core/README.md): Core platform shared contracts and models.
-- [packages/game/README.md](./packages/game/README.md): Spatial canvas, graphics pipeline, and interaction engine.
-- [studio/README.md](./studio/README.md): Design system, 3D asset pipeline, and Penpot integration.
+- [apps/api/README.md](./apps/api/README.md): API backend authority architecture and route documentation.
+- [apps/game-server/README.md](./apps/game-server/README.md): Dedicated Game Server (DGS) simulation and networking documentation.
+- [packages/core/README.md](./packages/core/README.md): Core platform shared contracts, XState machines, and Zod schemas.
+- [packages/game/README.md](./packages/game/README.md): Spatial canvas, WebGPU graphics pipeline, and interaction engine.
+- [packages/hub/README.md](./packages/hub/README.md): Social Hub UI layer and state synchronization.
+- [platforms/web/README.md](./platforms/web/README.md): Web client shell documentation.
+- [platforms/desktop/README.md](./platforms/desktop/README.md): Electron desktop client shell documentation.
+- [studio/README.md](./studio/README.md): Design system tokens, 3D asset pipeline, and Penpot integration.
+- [tools/README.md](./tools/README.md): Workspace automation and MCP tooling documentation.
+- [knowledge-base/README.md](./knowledge-base/README.md): Docusaurus engineering knowledge base documentation.
 
 ## Governance Standards
 
@@ -48,7 +59,7 @@ Agents operating within this repository MUST autonomously engage the correspondi
   - **`router-architect`**: Authoring, auditing, or updating hierarchical `AGENTS.md` context routers.
 - **Repository Governance Plugin (`@tupynambalucas-dev/plugin-repo`)**:
   - **`monorepo-architect`**: Maintaining monorepo configurations, pnpm catalogs, package scopes, and Turborepo pipelines.
-  - **`readme-architect`**: Authoring or auditing `README.md` files and preserving recursive navigation.
+  - **`readme-architect` & `readme-auditor`**: Authoring or auditing `README.md` files and preserving recursive navigation.
   - **`community-health-architect`**: Auditing and aligning governance and health files.
 - **GitHub Flow Plugin (`@tupynambalucas-dev/plugin-github-flow`)**:
   - **`github-flow-operator`**: Executing Git branching, SSH-signed Conventional Commits, and PR lifecycle workflows.

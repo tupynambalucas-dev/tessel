@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "useDefineForClassFields": true,
+    "allowImportingTsExtensions": true,
+    "allowArbitraryExtensions": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@tessel/hub": ["../../packages/hub/src/index.ts"],
+      "@tessel/core": ["../../packages/core/src/index.ts"],
+      "@tessel/game": ["../../packages/game/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "vite.config.ts"],
+  "exclude": ["node_modules", "dist"]
+}

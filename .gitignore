@@ -9,6 +9,8 @@ node_modules/
 dist/
 out/
 .eslintcache
+.turbo/
+*.tsbuildinfo
 
 # --- Web Platform ---
 /platforms/web/dist/

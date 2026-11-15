@@ -4,8 +4,8 @@ import * as Sentry from '@sentry/node';
 import { nodeProfilingIntegration } from '@sentry/profiling-node';
 import { AppError } from '../utils/AppError.js';
 
-const sentryPlugin: FastifyPluginAsync = async (server: FastifyInstance) => {
-  if (!server.config.SENTRY_DSN) return;
+const sentryPlugin: FastifyPluginAsync = (server: FastifyInstance) => {
+  if (server.config.SENTRY_DSN === undefined) return Promise.resolve();
   server.log.info('🚀 Sentry Enabled');
   Sentry.init({
     dsn: server.config.SENTRY_DSN,
@@ -21,7 +21,7 @@ const sentryPlugin: FastifyPluginAsync = async (server: FastifyInstance) => {
       }
 
       if (error && typeof error === 'object' && 'statusCode' in error) {
-        const errorWithStatus = error as { statusCode: unknown };
+        const errorWithStatus = error;
         const status = errorWithStatus.statusCode;
 
         if (typeof status === 'number' && status < 500) {
@@ -32,6 +32,8 @@ const sentryPlugin: FastifyPluginAsync = async (server: FastifyInstance) => {
       return event;
     },
   });
+
+  return Promise.resolve();
 };
 
 export default fp(sentryPlugin);

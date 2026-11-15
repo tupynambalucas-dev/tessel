@@ -23,12 +23,11 @@
     "incremental": true,
 
     /* Resolução Global de Workspaces */
-    "baseUrl": ".",
     "paths": {
-      "@tessel/core": ["./packages/core/src"],
-      "@tessel/game": ["./packages/game/src"],
-      "@tessel/backend": ["./packages/backend/src"],
-      "@tessel/studio": ["./studio/src"]
+      "@tessel/core": ["./packages/core/src/index.ts"],
+      "@tessel/game": ["./packages/game/src/index.ts"],
+      "@tessel/hub": ["./packages/hub/src/index.ts"],
+      "@tessel/studio": ["./studio/src/index.ts"]
     }
   }
 }
