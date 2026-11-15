@@ -1,0 +1,46 @@
+{
+  "name": "@tessel/platform-desktop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "author": "Tupynambá Lucas Varela Rodrigues <tupynambalucas.dev>",
+  "description": "Tessel Desktop Platform",
+  "license": "CC-BY-NC-4.0",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "build:unpack": "npm run build && cross-env ELECTRON_BUILDER_CACHE=./.build-cache electron-builder --dir",
+    "build:win": "npm run build && cross-env ELECTRON_BUILDER_CACHE=./.build-cache electron-builder --win",
+    "build:mac": "electron-vite build && electron-builder --mac",
+    "build:linux": "electron-vite build && electron-builder --linux"
+  },
+  "dependencies": {
+    "@tessel/hub": "workspace:*",
+    "@electron-toolkit/preload": "catalog:desktop-stack",
+    "@electron-toolkit/utils": "catalog:desktop-stack",
+    "react": "catalog:web-stack",
+    "react-dom": "catalog:web-stack",
+    "zustand": "catalog:web-stack"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@types/node-7z": "catalog:desktop-stack",
+    "7zip-bin": "catalog:desktop-stack",
+    "node-7z": "catalog:desktop-stack",
+    "@tailwindcss/vite": "catalog:web-stack",
+    "@types/react": "catalog:web-stack",
+    "@types/react-dom": "catalog:web-stack",
+    "@vitejs/plugin-basic-ssl": "catalog:desktop-stack",
+    "@vitejs/plugin-react-swc": "catalog:web-stack",
+    "cross-env": "catalog:desktop-stack",
+    "electron": "catalog:desktop-stack",
+    "electron-builder": "catalog:desktop-stack",
+    "electron-vite": "catalog:desktop-stack",
+    "vite-plugin-svgr": "catalog:web-stack",
+    "vite-tsconfig-paths": "catalog:desktop-stack"
+  }
+}

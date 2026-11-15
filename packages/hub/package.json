@@ -1,0 +1,37 @@
+{
+  "name": "@tessel/hub",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "author": "Tupynambá Lucas Varela Rodrigues <tupynambalucas.dev>",
+  "license": "CC-BY-NC-4.0",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "clean": "rimraf dist tsconfig.tsbuildinfo",
+    "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tessel/core": "workspace:*",
+    "@tessel/studio": "workspace:*",
+    "@gsap/react": "catalog:web-stack",
+    "gsap": "catalog:web-stack",
+    "react-i18next": "catalog:web-stack",
+    "i18next": "catalog:web-stack",
+    "react-datepicker": "catalog:web-stack",
+    "date-fns": "catalog:shared-stack",
+    "axios": "catalog:shared-stack",
+    "zustand": "catalog:web-stack",
+    "react": "catalog:web-stack",
+    "react-dom": "catalog:web-stack"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:web-stack",
+    "@types/react-dom": "catalog:web-stack",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  }
+}

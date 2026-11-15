@@ -2,7 +2,7 @@ import type { FastifyInstance, FastifyPluginAsync } from 'fastify';
 import type { ZodTypeProvider } from 'fastify-type-provider-zod';
 import { registerSchema, loginSchema } from './auth.schema.js';
 
-const authRoutes: FastifyPluginAsync = async (server: FastifyInstance): Promise<void> => {
+const authRoutes: FastifyPluginAsync = (server: FastifyInstance): Promise<void> => {
   const app = server.withTypeProvider<ZodTypeProvider>();
   const controller = server.authController;
 
@@ -11,6 +11,8 @@ const authRoutes: FastifyPluginAsync = async (server: FastifyInstance): Promise<
   app.post('/logout', controller.logoutHandler);
 
   app.get('/verify', { preHandler: [server.authenticate] }, controller.verifyHandler);
+
+  return Promise.resolve();
 };
 
 export default authRoutes;

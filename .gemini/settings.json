@@ -26,22 +26,32 @@
     "showUserIdentity": true,
     "incrementalRendering": false
   },
-  // Its necessary to create (./.gemini/.env) file containing the keys GITHUB_MCP_PAT and CONTEXT7_API_KEY with your respect API keys
+  // Ensure studio/.env file contains the rescpective keys:
+  // GITHUB_TOKEN, CONTEXT7_API_KEY
   "mcpServers": {
     "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github@latest"]
+      "command": "docker",
+      "args": ["compose", "-f", "tools/mcp/compose.yaml", "run", "--rm", "-i", "mcp-github"]
     },
     "context7": {
+      "command": "docker",
+      "args": ["compose", "-f", "tools/mcp/compose.yaml", "run", "--rm", "-i", "mcp-context7"]
+    },
+    "browser": {
+      "command": "docker",
+      "args": ["compose", "-f", "tools/mcp/compose.yaml", "run", "--rm", "-i", "mcp-browser"]
+    },
+    "dockerhub": {
+      "command": "docker",
+      "args": ["compose", "-f", "tools/mcp/compose.yaml", "run", "--rm", "-i", "mcp-dockerhub"]
+    },
+    "penpot": {
       "command": "npx",
-      "args": ["-y", "@upstash/context7-mcp"]
+      "args": ["-y", "mcp-remote", "http://localhost:4401/mcp", "--allow-http"]
     },
     "blender": {
-      "command": "cmd",
-      "args": ["/c", "uvx", "blender-mcp"],
-      "env": {
-        "DISABLE_TELEMETRY": "true"
-      }
+      "command": "uvx",
+      "args": ["blender-mcp"]
     }
   },
   "experimental": {

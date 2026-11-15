@@ -13,7 +13,7 @@ const securityPlugin: FastifyPluginAsync = async function (server: FastifyInstan
     }
   });
 
-  server.get('/api/csrf-token', async (req, reply) => {
+  server.get('/api/csrf-token', async (_req, reply) => {
     const token = reply.generateCsrf();
     return { token };
   });

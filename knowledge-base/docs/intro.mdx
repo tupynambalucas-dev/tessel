@@ -1,0 +1,83 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+Welcome to the **Tessel** documentation. Tessel is a high-performance **Hybrid Spatial Social Ecosystem** that bridges the gap between immersive 3D presence and asynchronous social networking.
+
+## Monorepo Architecture
+
+We use **NPM Workspaces** and **Turborepo** to structure our codebase into distinct applications and shared packages. This ensures a strict separation between the social network (The Hub), the immersive 3D rendering engine (The Instance), and authoritative server-side orchestration.
+
+```mermaid
+graph TD
+    Hub[apps/www: Social Hub] --> Game[@tessel/game]
+    AppDesktop[apps/client-desktop] --> Game
+    Game --> Core[@tessel/core]
+    Api[@tessel/api] --> Core
+    DGS[@tessel/game-server] --> Core
+    Api -->|Provision| DGS
+
+    subgraph "The Instance (Synchronous)"
+        Game
+        R3F[React Three Fiber v10]
+        TSL[Three Shading Language]
+        RapierClient[Rapier Client Physics]
+    end
+
+    subgraph "Logic & SSOT Layer"
+        Core
+        XState[State Machines]
+        Zod[Validation Schemas]
+    end
+
+    subgraph "Host Layer"
+        Api
+        Hub
+        Fastify[Fastify 5]
+        RapierServer[Rapier Server Physics]
+        Mongo[MongoDB / Mongoose]
+        Agones[Agones Orchestrator]
+    end
+```
+
+### Core Components
+
+- **`apps/www` (Social Hub)**: A full-featured asynchronous social network acting as the primary entry point and Identity Provider.
+- **`apps/api` (The Authority)**: Stateless orchestration layer handling matchmaking and Dedicated Game Server (DGS) provisioning.
+- **`apps/game-server` (DGS)**: Stateful room instances running authoritative Rapier physics simulations.
+- **`packages/core`**: Single Source of Truth (SSOT) containing validation schemas and state machines.
+- **`packages/game`**: The core 3D engine using React Three Fiber, WebGPU, and TSL.
+
+---
+
+## Quick Start
+
+Ensure you have **Node.js 22+** and **PNPM 10+** (or NPM compatible equivalent).
+
+1.  **Install Dependencies:**
+    ```bash
+    pnpm install
+    ```
+
+2.  **Set Up Environment:**
+    Ensure Docker is running for infrastructure services.
+
+3.  **Run Development Environment:**
+    We use Turborepo to orchestrate the services. Start the core infrastructure and apps:
+    ```bash
+    pnpm dev
+    ```
+
+    Refer to the **[Cheat Sheet](./cheat-sheet.mdx)** for a complete list of commands.
+
+---
+
+## Documentation Index
+
+For detailed guides, explore the sections below:
+- **[Architecture Overview](./engineering/architecture.mdx)**: Technical stack and monorepo strategy.
+- **[Style Guide](./engineering/styleguide.mdx)**: Coding standards, WebGPU rules, and backend patterns.
+- **[Master Plan](./product/masterplan.mdx)**: Project roadmap and implementation phases.
+- **[Product Vision](./product/vision.mdx)**: Product mission and value proposition.

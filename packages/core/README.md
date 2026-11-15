@@ -1,26 +1,54 @@
-# @tessel/core - Shared Logic & SSOT
+# Tessel Core Contracts (`@tessel/core`)
 
-This package is the **Single Source of Truth (SSOT)** for the Tessel project. It contains all shared logic, schemas, and types used by both the backend and frontend.
-
-## 📦 Exported Modules
-
-1.  **Schemas (Zod)**: Rigorous definitions for all data contracts (Auth, Player, Room).
-2.  **State Management**: XState machines for complex game state orchestration.
-3.  **Constants**: Physics constants, camera settings, and game configuration.
-4.  **Types**: Centralized TypeScript definitions inferred from schemas.
-5.  **Locales**: Internationalization strings (i18next).
-
-## 🔄 Development Flow
-
-1.  **Modify**: Update schemas or constants in `packages/core`.
-2.  **Build**: Run `npm run build` to generate types and distribution files.
-3.  **Refactor**: Backend and Frontend will automatically detect type changes.
-
-## 🛠 Available Commands
-
-- `npm run build`: Compile TypeScript and generate declarations.
-- `npm run typecheck`: Verify integrity without output.
-- `npm run lint`: Enforce code standards.
+Single Source of Truth (SSOT) library centralizing shared Zod v4 data contracts, XState v5 state machines, Rapier physics constants, and i18n locale definitions across the Tessel ecosystem.
 
 ---
-*SSOT & Core Intelligence - Tessel*
+
+## 1. Overview
+
+`@tessel/core` guarantees 100% contract consistency between the asynchronous Social Hub (`@tessel/hub`, `@tessel/api`) and synchronous 3D Instances (`@tessel/game`, `@tessel/game-server`).
+
+---
+
+## 2. Capabilities & Exports
+
+- **Schemas (`Zod v4`)**: Strict runtime validation contracts for user profiles, room configurations, and social posts.
+- **State Orchestration (`XState v5`)**: Deterministic finite state machines for matchmaking, room provisioning, and character locomotion.
+- **Physics Presets**: Shared Rapier 3D gravity, character controller velocities, and collision group bitmasks.
+- **Unified Types**: TypeScript types inferred directly from Zod schemas.
+
+---
+
+## 3. Directory Layout
+
+```text
+packages/core/
+├── src/                     # Shared schemas, XState machines, constants, and types
+├── package.json             # Package manifest and scripts
+├── tsconfig.json            # TypeScript configuration
+└── README.md                # Package documentation
+```
+
+---
+
+## 4. Configuration & Usage
+
+Following the **Shared First** workflow, any modification to cross-service data contracts or character state machines begins in `@tessel/core`. Workspace consumers resolve changes immediately via TypeScript path mappings during development.
+
+---
+
+## 5. Development Scripts
+
+| Command | Description |
+| :--- | :--- |
+| `pnpm build` | Compiles TypeScript sources and emits declaration files to `dist/`. |
+| `pnpm typecheck` | Performs strict static type analysis (`tsc --noEmit`). |
+| `pnpm lint` | Runs ESLint across package sources. |
+
+---
+
+## 6. Governance & Context
+
+- **Parent Monorepo**: [`../../README.md`](../../README.md)
+- **Agent Context Router**: [`../../AGENTS.md`](../../AGENTS.md)
+- **Zero-Emoji & Language Policy**: Strictly authored in `en-US` with zero emojis.

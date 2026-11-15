@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@import '@tessel/studio/theme.css';
+
+@layer base {
+  /* Add package-specific base styles here if needed */
+}
+
+@layer components {
+  /* Add package-specific components here */
+}
+
+@layer utilities {
+  /* Add package-specific utilities here */
+}

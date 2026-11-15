@@ -4,7 +4,7 @@ import { ZodError } from 'zod';
 import * as Sentry from '@sentry/node';
 import { AppError } from '../utils/AppError.js';
 
-const errorHandlerPlugin: FastifyPluginAsync = async (server: FastifyInstance) => {
+const errorHandlerPlugin: FastifyPluginAsync = (server: FastifyInstance) => {
   server.setErrorHandler((error, request, reply) => {
     if (process.env.NODE_ENV !== 'production') {
       request.log.error(error);
@@ -54,6 +54,8 @@ const errorHandlerPlugin: FastifyPluginAsync = async (server: FastifyInstance) =
       message: process.env.NODE_ENV !== 'production' ? fastifyError.message : undefined,
     });
   });
+
+  return Promise.resolve();
 };
 
 export default fp(errorHandlerPlugin);

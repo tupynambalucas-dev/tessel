@@ -2,6 +2,8 @@ import fp from 'fastify-plugin';
 import type { FastifyPluginAsync, FastifyInstance } from 'fastify';
 import mongoose from 'mongoose';
 import { User } from '../models/user.model.js';
+import { Product } from '../models/product.model.js';
+import { Cycle } from '../models/cycle.model.js';
 
 const MongoosePlugin: FastifyPluginAsync = async (server: FastifyInstance) => {
   try {
@@ -18,6 +20,8 @@ const MongoosePlugin: FastifyPluginAsync = async (server: FastifyInstance) => {
 
     const models = {
       User,
+      Product,
+      Cycle,
     };
 
     server.decorate('models', models);

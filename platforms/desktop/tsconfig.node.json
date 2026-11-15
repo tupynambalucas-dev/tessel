@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ESNext", "DOM"],
+    "types": ["node", "electron-vite/node", "node-7z"],
+    "paths": {
+      "@main/*": ["./src/main/*"],
+      "@preload/*": ["./src/preload/*"],
+      "@common/*": ["./src/common/*"]
+    }
+  },
+  "include": [
+    "electron.vite.config.*",
+    "src/main/**/*",
+    "src/preload/**/*",
+    "src/common/**/*",
+    "src/env.d.ts",
+    "scripts/**/*"
+  ],
+  "exclude": ["src/renderer", "out", "dist", "node_modules"]
+}

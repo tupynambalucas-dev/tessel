@@ -5,8 +5,6 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
 
-    "composite": true,
-    "baseUrl": ".",
     "paths": {
       /* HMR: lê a fonte do core em tempo real */
       "@tessel/core": ["../../packages/core/src/index.ts"]

@@ -1,0 +1,16 @@
+{
+  "name": "@tessel/tools",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "author": "Tupynambá Lucas Varela Rodrigues <tupynambalucas.dev>",
+  "description": "Tessel Tools Package",
+  "license": "CC-BY-NC-4.0",
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "catalog:",
+    "eslint": "catalog:tooling-stack"
+  }
+}
