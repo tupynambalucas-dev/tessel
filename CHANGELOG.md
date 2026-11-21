@@ -11,15 +11,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Features & Capabilities
 
-- [feat(git): adopt Evil Martians Lefthook for parallel pre-commit and commitlint #47](https://github.com/tupynambalucas-dev/tessel/pull/47)
+- [feat(git): adopt Evil Martians Lefthook for parallel pre-commit and commitlint #47](https://github.com/tupynambalucas-dev/tessel/pull/47) ([@tupynambalucas](https://github.com/tupynambalucas))
 
 ### Documentation & Specifications
 
-- [docs(changelog): upgrade to keep a changelog format #48](https://github.com/tupynambalucas-dev/tessel/pull/48)
+- [docs(changelog): upgrade to keep a changelog format #48](https://github.com/tupynambalucas-dev/tessel/pull/48) ([@tupynambalucas](https://github.com/tupynambalucas))
 
 ### Bug Fixes & Corrections
 
-- [fix(deps): align pnpm lockfile with catalog definitions #45](https://github.com/tupynambalucas-dev/tessel/pull/45)
+- [fix(deps): align pnpm lockfile with catalog definitions #45](https://github.com/tupynambalucas-dev/tessel/pull/45) ([@tupynambalucas](https://github.com/tupynambalucas))
 
 ---
 
@@ -29,14 +29,14 @@ Initial alpha milestone establishing core architectural boundaries, atomic workf
 
 ### Refactoring & Internal Architecture
 
-- [refactor(governance): enterprise documentation restructure, centralizing strategic documents in /docs](https://github.com/tupynambalucas-dev/tessel/commit/49ae855)
-- [refactor(workflows): atomic workflows directory structure for automated, modular changelog and roadmap updates](https://github.com/tupynambalucas-dev/tessel/commit/531ad0d)
-- [refactor(studio): redefine studio as the automation and asset distribution hub](https://github.com/tupynambalucas-dev/tessel/commit/dbcba51)
+- [refactor(governance): enterprise documentation restructure, centralizing strategic documents in /docs (49ae855)](https://github.com/tupynambalucas-dev/tessel/commit/49ae855) ([@tupynambalucas](https://github.com/tupynambalucas))
+- [refactor(workflows): atomic workflows directory structure for automated, modular changelog and roadmap updates (531ad0d)](https://github.com/tupynambalucas-dev/tessel/commit/531ad0d) ([@tupynambalucas](https://github.com/tupynambalucas))
+- [refactor(studio): redefine studio as the automation and asset distribution hub (dbcba51)](https://github.com/tupynambalucas-dev/tessel/commit/dbcba51) ([@tupynambalucas](https://github.com/tupynambalucas))
 
 ### Documentation & Specifications
 
-- [docs(standards): consolidate coding style guide into a single source of truth at docs/STYLEGUIDE.md](https://github.com/tupynambalucas-dev/tessel/commit/8a18075)
-- [docs(policy): enforce mandatory en-US for all code and technical documentation](https://github.com/tupynambalucas-dev/tessel/commit/c4718a5)
+- [docs(standards): consolidate coding style guide into a single source of truth at docs/STYLEGUIDE.md (8a18075)](https://github.com/tupynambalucas-dev/tessel/commit/8a18075) ([@tupynambalucas](https://github.com/tupynambalucas))
+- [docs(policy): enforce mandatory en-US for all code and technical documentation (c4718a5)](https://github.com/tupynambalucas-dev/tessel/commit/c4718a5) ([@tupynambalucas](https://github.com/tupynambalucas))
 
 [0.2.0]: https://github.com/tupynambalucas-dev/tessel/compare/v0.1.0-alpha...v0.2.0
 [0.1.0-alpha]: https://github.com/tupynambalucas-dev/tessel/releases/tag/v0.1.0-alpha

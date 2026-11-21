@@ -132,6 +132,7 @@ catalogs:
 
 allowBuilds:
   '@sentry-internal/node-cpu-profiler': true
+  '@sentry/node-cpu-profiler': true
   '@swc/core': true
   'bcrypt': true
   'core-js': true

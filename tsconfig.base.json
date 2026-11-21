@@ -15,6 +15,7 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Interoperabilidade e Performance */
+    "ignoreDeprecations": "6.0",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "isolatedModules": true,
