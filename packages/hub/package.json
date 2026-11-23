@@ -10,7 +10,7 @@
   },
   "scripts": {
     "clean": "rimraf dist tsconfig.tsbuildinfo",
-    "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    "build": "pnpm run clean && tsc",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },

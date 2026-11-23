@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "clean": "rimraf dist tsconfig.tsbuildinfo",
-    "build": "pnpm run clean && tsc -p tsconfig.build.json",
+    "build": "pnpm run clean && tsc",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
   },
@@ -24,6 +24,7 @@
     "react-i18next": "catalog:web-stack",
     "tone": "catalog:shared-stack",
     "zustand": "catalog:web-stack",
+    "three-stdlib": "catalog:shared-stack",
     "axios": "catalog:shared-stack",
     "date-fns": "catalog:shared-stack",
     "react-datepicker": "catalog:web-stack",
@@ -31,6 +32,9 @@
     "react-dom": "catalog:web-stack"
   },
   "devDependencies": {
+    "@types/react": "catalog:web-stack",
+    "@types/react-dom": "catalog:web-stack",
+    "@types/three": "catalog:shared-stack",
     "tailwindcss": "catalog:shared-stack",
     "typescript": "catalog:"
   }

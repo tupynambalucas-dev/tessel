@@ -13,7 +13,7 @@ interface NpcProps {
 
 export const Npc: React.FC<NpcProps> = ({ modelUrl, emoteName, position, rotation }) => {
   const characterRef = useRef<THREE.Group | null>(null);
-  const { scene: gltfScene } = useGLTF(modelUrl);
+  const { scene: gltfScene } = useGLTF(modelUrl) as any;
 
   // FIX: Clona a cena para não sujar o cache global
   const scene = useMemo(() => SkeletonUtils.clone(gltfScene), [gltfScene]);

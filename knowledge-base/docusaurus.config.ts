@@ -100,15 +100,15 @@ const config: Config = {
           items: [
             {
               label: 'Architecture',
-              to: '/ARCHITECTURE',
+              to: '/engineering/architecture',
             },
             {
               label: 'Masterplan',
-              to: '/MASTERPLAN',
+              to: '/product/masterplan',
             },
             {
               label: 'Product',
-              to: '/PRODUCT',
+              to: '/product/vision',
             },
           ],
         },
