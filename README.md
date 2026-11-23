@@ -122,7 +122,7 @@ Runtime secrets and service endpoints for `@tessel/api`, `@tessel/game-server`, 
 ### Installation & Local Startup
 
 ```bash
-# 1. Clone the repository (or sync via org-ecosystem Mani manifest)
+# 1. Clone the repository (or sync via ecosystem Mani manifest)
 git clone git@github.com:tupynambalucas-dev/tessel.git
 cd tessel
 
