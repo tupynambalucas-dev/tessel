@@ -1,7 +1,9 @@
 import { useState } from 'react'
 
 function Versions(): React.JSX.Element {
-  const [versions] = useState(window.electron.process.versions)
+  const [versions] = useState(
+    (window as any).electron?.process?.versions || { electron: 'unknown', chrome: 'unknown', node: 'unknown' }
+  )
 
   return (
     <ul className="versions">

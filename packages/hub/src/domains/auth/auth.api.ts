@@ -1,4 +1,4 @@
-import { api } from '@/lib/axios';
+import { api } from '../../lib/axios';
 import type { LoginDTO, RegisterDTO, LoginResponse } from '@tessel/core';
 
 export const authApi = {

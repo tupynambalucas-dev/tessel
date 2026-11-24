@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { authApi } from './auth.api';
-import { setCsrfToken } from '@/lib/axios';
-import { getErrorMessage, extractErrorCode } from '@/utils/errorHelper';
+import { setCsrfToken } from '../../lib/axios';
+import { getErrorMessage, extractErrorCode } from '../../utils/errorHelper';
 import {
   type LoginDTO,
   type RegisterDTO,

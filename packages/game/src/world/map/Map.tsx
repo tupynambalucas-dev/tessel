@@ -46,16 +46,16 @@ const RectLightInstance: FC<{ node: THREE.Mesh }> = ({ node }) => {
 };
 
 export const GameMap: React.FC<GameMapProps> = ({ mapUrl, onSpawnFound }) => {
-  const { scene: gltfScene, nodes } = useGLTF(mapUrl);
+  const { scene: gltfScene, nodes } = useGLTF(mapUrl) as any;
   const scene = useMemo(() => SkeletonUtils.clone(gltfScene) as THREE.Group, [gltfScene]);
 
   const existingLights = useMemo(() => {
-    return Object.values(nodes).filter((node): node is THREE.Light => isLight(node));
+    return Object.values(nodes as Record<string, any>).filter((node: any): node is THREE.Light => isLight(node));
   }, [nodes]);
 
   const rectLightPlaceholders = useMemo(() => {
-    return Object.values(nodes).filter(
-      (node): node is THREE.Mesh => isMesh(node) && node.name.startsWith('RectLight')
+    return Object.values(nodes as Record<string, any>).filter(
+      (node: any): node is THREE.Mesh => isMesh(node) && node.name?.startsWith('RectLight')
     );
   }, [nodes]);
 

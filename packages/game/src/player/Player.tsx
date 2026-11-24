@@ -28,13 +28,13 @@ export const Player = forwardRef<RapierRigidBody, PlayerProps>(({ initialPositio
   const characterRef = useRef<THREE.Group | null>(null);
   const colliderRef = useRef<RapierCollider | null>(null);
 
-  const { scene: gltfScene } = useGLTF(AmyUrl);
+  const { scene: gltfScene } = useGLTF(AmyUrl) as any;
   
   const input = useInputControls();
   const { camera, gl } = useThree(); 
   const { rapier, world } = useRapier();
 
-  const [state, send] = useMachine(PlayerStateMachine);
+  const [state, send] = useMachine(PlayerStateMachine as any) as any;
   const jumpPressed = useRef(false);
 
   const openEmoteWheel = useGameStore((s) => s.openEmoteWheel);
