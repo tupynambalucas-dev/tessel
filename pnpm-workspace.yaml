@@ -72,7 +72,7 @@ catalogs:
     '@electron-toolkit/utils': '^4.0.0'
     '@vitejs/plugin-basic-ssl': '^2.3.0'
     'cross-env': '^7.0.3'
-    'electron': '41.2.1'
+    'electron': '42.11.16'
     'electron-builder': '^26.8.1'
     'electron-vite': '^5.0.0'
     'vite-tsconfig-paths': '^6.1.1'
